@@ -1,27 +1,24 @@
-#include <fstream>
 #include <iostream>
 
 using namespace std;
+int BinarySearchRight(int left, int right, int array[], int key);
+int BinarySearchLeft(int left, int right, int array[], int key);
 int main()
 {
-	int animalNumber, enquiryNumber;
+	int animalNumber, enquiryNumber, enquiry;
 	cin >> animalNumber;
-	int *animalColor = new int[animalNumber];
+	int* animalColor = new int[animalNumber];
 	for (int counter1 = 0; counter1 < animalNumber; ++counter1) {
 		cin >> animalColor[counter1];
 	}
 	cin >> enquiryNumber;
-	int *enquiry = new int[enquiryNumber];
 	for (int counter2 = 0; counter2 < enquiryNumber; ++counter2) {
-		cin >> enquiry[counter2];
-	}
-	for (int counter3 = 0; counter3 < enquiryNumber; ++counter3) {
-		int leftPosition = BinarySearchLeft(0, animalNumber, animalColor, enquiry[counter3]);
-		int rightPosition = BinarySearchRight(0, animalNumber, animalColor, enquiry[counter3]);
+		cin >> enquiry;
+		int leftPosition = BinarySearchLeft(0, animalNumber, animalColor, enquiry);
+		int rightPosition = BinarySearchRight(0, animalNumber, animalColor, enquiry);
 		cout << rightPosition - leftPosition << endl;
 	}
 	delete[] animalColor;
-	delete[] enquiry;
 	system("pause");
 	return 0;
 }
